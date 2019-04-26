@@ -15,6 +15,8 @@ The acceptable parameters are:
 
     'do-what-it-says' 
     When run, the 'fs' function reads from the 'random.txt' file splits the text into an array to determine the search parameter and search term then runs the appropriate parameter.
+    
+![Liri-node-app-screenshot](https://github.com/Mitchel34/liri-node-app/blob/master/photos/Screenshot%20(5).png)
 
     
    
