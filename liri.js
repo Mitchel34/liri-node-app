@@ -34,7 +34,7 @@ if (process.argv[2] === "movie-this") {
         function (response) {
             console.log("Title: " + response.data.Title);
             console.log("IMDB Rating: " + response.data.imdbRating);
-            console.log("Rotten Tomatoes Rating: ", (response.data.Ratings[1]));
+            console.log("Rotten Tomatoes Rating: ", JSON.stringify(response.data.Ratings[1].Value));
             console.log("Country: " + response.data.Country);
             console.log("Language: " + response.data.Language);
             console.log("Plot: " + response.data.Plot);
@@ -42,12 +42,12 @@ if (process.argv[2] === "movie-this") {
         }
     )
 }
-if (process.argv[2] === "do-what-it-says") {
+if (process.argv[2] === "do-what-it-says" || !process.argv[2]) {
     fs.readFile("random.txt", "utf8", function (error, data) {
         if (error) {
             return console.log(error);
         }
-
+        var dataArr = data.split(",");
         if (dataArr[0] === "spotify-this-song") {
             media = dataArr[1];
             spotify.search({ type: 'track', query: media, limit: 1 }, function (err, data) {
